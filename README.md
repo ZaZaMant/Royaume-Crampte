@@ -9,27 +9,15 @@
 
 ## Snippets
 
-''' gd-cpp-class-header '''
+``` gd-cpp-class-header ```
 
 A utiliser dans le projet pour créer le skelette d'un .h d'une classe
 
 
 
-''' gd-cpp-class '''
+``` gd-cpp-class ```
 
 a utiliser dans le projet pour créer le skelette d'un .cpp d'une classe
-
-
-
-
-''' gd-cpp-property-bindings '''
-
-
-
-
-
-''' gd-cpp-method-bindings '''
-
 
 
 
