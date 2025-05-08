@@ -5,8 +5,10 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="GDExample" type="GDExample" parent="."]
-amplitude = 30.0
-speed = 3.82
-position = Vector2(149, 65)
+amplitude = 50.0
+speed = 5.64
+position = Vector2(80, 44)
+rotation = -0.237365
+scale = Vector2(3.75, 1.1875)
 texture = ExtResource("1_ulcgi")
 centered = false

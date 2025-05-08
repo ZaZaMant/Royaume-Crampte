@@ -15,17 +15,21 @@ void GDExample::_bind_methods() {
 	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "speed", PROPERTY_HINT_RANGE, "0,20,0.01"), "set_speed", "get_speed");
 }
 
+// Constructeur
 GDExample::GDExample() {
 	// Initialize any variables here.
 	time_passed = 0.0;
 	amplitude = 10.0;
 	speed = 1.0;
+	//blablabla bloubloublou blehblehbleh
 }
 
+// Destructeur
 GDExample::~GDExample() {
 	// Add your cleanup here.
 }
 
+// Main loop
 void GDExample::_process(double delta) {
 	time_passed += speed * delta;
 
@@ -36,6 +40,8 @@ void GDExample::_process(double delta) {
 
 	set_position(new_position);
 }
+
+// Getter / setter
 
 void GDExample::set_amplitude(const double p_amplitude) {
 	amplitude = p_amplitude;
