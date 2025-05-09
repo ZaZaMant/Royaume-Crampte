@@ -1,17 +1,17 @@
 #include "gdexample.h"
 #include <godot_cpp/core/class_db.hpp>
 
+#include <godot_cpp/classes/input.hpp>
+
 using namespace godot;
 
 void GDExample::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_amplitude"), &GDExample::get_amplitude);
 	ClassDB::bind_method(D_METHOD("set_amplitude", "p_amplitude"), &GDExample::set_amplitude);
-
 	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "amplitude"), "set_amplitude", "get_amplitude");
 
 	ClassDB::bind_method(D_METHOD("get_speed"), &GDExample::get_speed);
 	ClassDB::bind_method(D_METHOD("set_speed", "p_speed"), &GDExample::set_speed);
-
 	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "speed", PROPERTY_HINT_RANGE, "0,20,0.01"), "set_speed", "get_speed");
 }
 
@@ -21,7 +21,6 @@ GDExample::GDExample() {
 	time_passed = 0.0;
 	amplitude = 10.0;
 	speed = 1.0;
-	//blablabla bloubloublou blehblehbleh
 }
 
 // Destructeur
@@ -39,6 +38,12 @@ void GDExample::_process(double delta) {
 	);
 
 	set_position(new_position);
+
+	Input& input = *Input::get_singleton();
+
+	if (input.is_action_just_pressed("")) {
+		
+	}
 }
 
 // Getter / setter

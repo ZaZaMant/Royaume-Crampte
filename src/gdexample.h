@@ -5,6 +5,11 @@
 
 namespace godot {
 
+/**
+ * @brief 
+ * 
+ * @property 
+ */
 class GDExample : public Sprite2D {
 	GDCLASS(GDExample, Sprite2D)
 

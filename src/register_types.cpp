@@ -15,7 +15,8 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level)
 	}
 	//GDREGISTER_CLASS(YourClass);
 
-	GDREGISTER_RUNTIME_CLASS(GDExample);
+	// GDREGISTER_RUNTIME_CLASS(GDExample);
+	GDREGISTER_CLASS(GDExample);
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {

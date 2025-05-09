@@ -1,4 +1,7 @@
+#
+
 ## Contents
+
 * Godot project dans (`demo/`)
 * godot-cpp en tant que submodule (`godot-cpp/`)
 * GitHub Issues template (`.github/ISSUE_TEMPLATE.yml`)
@@ -6,20 +9,11 @@
 * Les fichiers en c++ (utilisé par GDExtension) (`src/`)
 * setup to automatically generate `.xml` files in a `doc_classes/` directory to be parsed by Godot as [GDExtension built-in documentation](https://docs.godotengine.org/en/stable/tutorials/scripting/gdextension/gdextension_docs_system.html)
 
-
 ## Snippets
 
-''' gd-cpp-class-header '''
+`gd-cpp-class-header` : A utiliser dans le projet pour créer le .h d'une class
 
-A utiliser dans le projet pour créer le .h d'une class
-
-
-
-''' gd-cpp-class '''
-
-a utiliser dans le projet pour créer le .cpp d'une class
-
-
+`gd-cpp-class` : A utiliser dans le projet pour créer le .cpp d'une class
 
 ## Usage - Actions
 
