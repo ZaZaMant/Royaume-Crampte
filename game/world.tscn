@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://brnicvxeoj0ye"]
+[gd_scene load_steps=9 format=3 uid="uid://brnicvxeoj0ye"]
 
 [ext_resource type="PackedScene" uid="uid://r26p4me684tv" path="res://elements/entities/player/player.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://donf48kyyubec" path="res://elements/pickup/pickup.tscn" id="2_tlwt5"]
 [ext_resource type="Resource" uid="uid://cbdbkwryrs270" path="res://data/items/brindille.tres" id="3_aqk2v"]
 [ext_resource type="Script" uid="uid://bqh151f7oudje" path="res://ui/ui_root.gd" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://slkmth4dxdyf" path="res://ui/inventory_panel/inventory_panel.tscn" id="4_aqk2v"]
+[ext_resource type="Resource" uid="uid://d2r3kvkfk5gn" path="res://data/items/brick_of_milk.tres" id="5_gbfbk"]
+[ext_resource type="Resource" uid="uid://de6qirowqcyy3" path="res://data/items/kouign_amann.tres" id="5_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://bd448qfc5agqd" path="res://elements/map/map.tscn" id="6_dwbse"]
 
 [node name="World" type="Node2D"]
@@ -20,11 +22,11 @@ item = ExtResource("3_aqk2v")
 
 [node name="Pickup2" parent="." instance=ExtResource("2_tlwt5")]
 position = Vector2(185, 29)
-item = ExtResource("3_aqk2v")
+item = ExtResource("5_gbfbk")
 
 [node name="Pickup3" parent="." instance=ExtResource("2_tlwt5")]
 position = Vector2(-58, 81)
-item = ExtResource("3_aqk2v")
+item = ExtResource("5_pkg7o")
 
 [node name="UIRoot" type="CanvasLayer" parent="."]
 script = ExtResource("4_036b0")
