@@ -1,9 +1,10 @@
+class_name MovingHealthBar
 extends ProgressBar
 
 @onready var timer: Timer = $Timer
 @onready var damage_bar: ProgressBar = $DamageBar
 
-var health: float = 0.0 : set = _set_health
+var health: float = 0.0 : set = set_health
 
 func init_health(_health: float):
 	health = _health
@@ -12,7 +13,7 @@ func init_health(_health: float):
 	damage_bar.max_value = health
 	damage_bar.value = health
 
-func _set_health(new_heath: float):
+func set_health(new_heath: float):
 	var prev_health = health
 	health = min(max_value, new_heath)
 	value = health
@@ -26,4 +27,4 @@ func _set_health(new_heath: float):
 		damage_bar.value = health
 
 func _on_timer_timeout() -> void:
-	pass # Replace with function body.
+	damage_bar.value = health

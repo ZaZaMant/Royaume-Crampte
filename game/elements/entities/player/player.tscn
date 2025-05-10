@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://r26p4me684tv"]
+[gd_scene load_steps=9 format=4 uid="uid://r26p4me684tv"]
 
 [ext_resource type="Script" uid="uid://d4dmutullb65h" path="res://elements/entities/player/player.gd" id="1_symyc"]
 [ext_resource type="PackedScene" uid="uid://b7rturmp358io" path="res://elements/components/heath_component.tscn" id="2_wgaw1"]
 [ext_resource type="PackedScene" uid="uid://cn008mb8us4va" path="res://elements/components/hitbox_component.tscn" id="3_p7vss"]
+[ext_resource type="PackedScene" uid="uid://dveia3qqg10gs" path="res://ui/moving_healthbar/moving_healthbar.tscn" id="4_p7vss"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sfv1e"]
 height = 40.0
@@ -26,8 +27,9 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_symyc")
+max_hunger = 10
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_sfv1e")
@@ -57,7 +59,22 @@ unique_name_in_owner = true
 
 [node name="HeathComponent" parent="." instance=ExtResource("2_wgaw1")]
 
-[node name="HitboxComponent" parent="." instance=ExtResource("3_p7vss")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_p7vss")]
+health_component = NodePath("../HeathComponent")
 
 [node name="HitboxShape" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CapsuleShape2D_sfv1e")
+
+[node name="MovingHealthBar" parent="." instance=ExtResource("4_p7vss")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -11.0
+offset_top = -25.0
+offset_right = 11.0
+offset_bottom = -24.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="health_changed" from="HeathComponent" to="." method="_on_heath_component_health_changed"]

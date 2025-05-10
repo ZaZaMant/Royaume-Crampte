@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://byk4mqu1jrptu"]
+
+[ext_resource type="Texture2D" uid="uid://bqa2vbholp7uv" path="res://assets/sprites/icons/poulet.png" id="1_7wltx"]
+
+[node name="HungerBar" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_7wltx")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_7wltx")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_7wltx")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_7wltx")
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_7wltx")
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_7wltx")

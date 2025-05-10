@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dveia3qqg10gs"]
 
-[ext_resource type="Script" uid="uid://cnqid7flepdau" path="res://ui/healthbar/healthbar.gd" id="1_ub5rt"]
+[ext_resource type="Script" uid="uid://cnqid7flepdau" path="res://ui/moving_healthbar/moving_healthbar.gd" id="1_1vnb6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nf5lx"]
 
@@ -17,7 +17,7 @@ expand_margin_bottom = 1.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0j86n"]
 bg_color = Color(1, 1, 1, 1)
 
-[node name="Healthbar" type="ProgressBar"]
+[node name="MovingHealthBar" type="ProgressBar"]
 z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,7 +30,7 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_nf5lx")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ub5rt")
 value = 65.0
 show_percentage = false
-script = ExtResource("1_ub5rt")
+script = ExtResource("1_1vnb6")
 
 [node name="DamageBar" type="ProgressBar" parent="."]
 z_index = -1
