@@ -18,7 +18,7 @@ faire la "voix" de certains monstre avec notre voix.
 ## mots-clés
 
 expedition, aventure, parcours, forêt, bivouac, rando,
-ours, couillon prime, tirer la queue
+ours, couillon prime, tirer la queue, trésor
 
 ## résumé de l'idée :
 
@@ -36,6 +36,10 @@ png étrange (habitants de Brest,cultiste)
 ## Item :
 
 Koign amann qui ez les "mobs" (sucre, beurre, vache)
+Nourriture 
+bouteilles (verre ? plastique ? métal ?)
+
+
 
 ## But :
 
