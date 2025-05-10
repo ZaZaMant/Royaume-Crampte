@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://brnicvxeoj0ye"]
+
+[ext_resource type="PackedScene" uid="uid://r26p4me684tv" path="res://elements/entities/player/player.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://donf48kyyubec" path="res://elements/pickup/pickup.tscn" id="2_tlwt5"]
+[ext_resource type="Resource" uid="uid://cbdbkwryrs270" path="res://data/items/brindille.tres" id="3_aqk2v"]
+[ext_resource type="Script" uid="uid://bqh151f7oudje" path="res://ui/ui_root.gd" id="4_036b0"]
+[ext_resource type="PackedScene" uid="uid://slkmth4dxdyf" path="res://ui/inventory_panel/inventory_panel.tscn" id="4_aqk2v"]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_f3sb7")]
+unique_name_in_owner = true
+
+[node name="Pickup" parent="." instance=ExtResource("2_tlwt5")]
+position = Vector2(97, 47)
+item = ExtResource("3_aqk2v")
+
+[node name="Pickup2" parent="." instance=ExtResource("2_tlwt5")]
+position = Vector2(185, 29)
+item = ExtResource("3_aqk2v")
+
+[node name="Pickup3" parent="." instance=ExtResource("2_tlwt5")]
+position = Vector2(-58, 81)
+item = ExtResource("3_aqk2v")
+
+[node name="UIRoot" type="CanvasLayer" parent="."]
+script = ExtResource("4_036b0")
+
+[node name="InventoryPanel" parent="UIRoot" instance=ExtResource("4_aqk2v")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+grow_horizontal = 1
+grow_vertical = 0
