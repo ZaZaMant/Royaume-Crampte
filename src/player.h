@@ -39,7 +39,8 @@ public:
 	// physics process lui est appelé de manière régulière
 	// sans prendre en compte les frames
 
-	double set_velocity(double p_velocity);
+	void set_velocity(const double p_velocity);
+	double get_velocity() const;
 
 	// Methods
 

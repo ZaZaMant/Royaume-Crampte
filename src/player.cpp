@@ -7,6 +7,8 @@ using namespace godot;
 
 void Player::_bind_methods() {
 	// Bind methods to Godot here
+	ClassDB::bind_method(D_METHOD("set_velocity", "p_velocity"), &Player::set_velocity);
+	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "speed"), "set_speed", "get_speed");
 	// ClassDB::bind_method("set_property_name", &::set_property_name);
 	// ClassDB::bind_method(D_METHOD("set_property_name", "p_property_name"), &::set_property_name);
 	// ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "property_name"), "set_property_name", "get_property_name");
@@ -15,7 +17,7 @@ void Player::_bind_methods() {
 // Constructor
 Player::Player() {
 	// Initialization code here
-	speed = 5;
+	speed = 5.0;
 }
 
 // Destructor
@@ -64,6 +66,10 @@ void ::_exit_tree() {
 }
 
 void ::_input(const Ref<InputEvent> &event) {
+}
+
+void Player::set_velocity(const double p_velocity) const {
+	speed = p_velocity;
 }
 
 // ----------------------------------------------------
