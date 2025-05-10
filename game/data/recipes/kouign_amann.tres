@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://dkjrurvfilhp3"]
+
+[ext_resource type="Script" uid="uid://bekvxoksfcqh7" path="res://model/item.gd" id="1_1gc30"]
+[ext_resource type="Script" uid="uid://b6eif3kaghjnj" path="res://model/recipe.gd" id="2_l38lg"]
+[ext_resource type="Resource" uid="uid://c2a37rfofphty" path="res://data/items/butter.tres" id="2_rm8dd"]
+[ext_resource type="Resource" uid="uid://dpkcfpd6iowi2" path="res://data/items/sugar.tres" id="3_xc7yd"]
+[ext_resource type="Resource" uid="uid://d2r3kvkfk5gn" path="res://data/items/brick_of_milk.tres" id="4_68h6y"]
+[ext_resource type="Resource" uid="uid://de6qirowqcyy3" path="res://data/items/kouign_amann.tres" id="5_ps4a7"]
+
+[resource]
+script = ExtResource("2_l38lg")
+name = "Kouign-amann"
+indices = Array[String]([])
+ingredients = Array[ExtResource("1_1gc30")]([ExtResource("2_rm8dd"), ExtResource("3_xc7yd"), ExtResource("4_68h6y")])
+results = Array[ExtResource("1_1gc30")]([ExtResource("5_ps4a7")])
+metadata/_custom_type_script = "uid://b6eif3kaghjnj"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dpkcfpd6iowi2"]
+
+[ext_resource type="Texture2D" uid="uid://csjaug2lmid10" path="res://assets/sprites/icons/suggar.png" id="1_rcpoa"]
+[ext_resource type="Script" uid="uid://bekvxoksfcqh7" path="res://model/item.gd" id="1_vhvfu"]
+
+[resource]
+script = ExtResource("1_vhvfu")
+name = "Sugar"
+type = 4
+icon = ExtResource("1_rcpoa")
+price = 5
+metadata/_custom_type_script = "uid://bekvxoksfcqh7"

@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://r26p4me684tv"]
+[gd_scene load_steps=8 format=4 uid="uid://r26p4me684tv"]
 
 [ext_resource type="Script" uid="uid://d4dmutullb65h" path="res://elements/entities/player/player.gd" id="1_symyc"]
+[ext_resource type="PackedScene" uid="uid://b7rturmp358io" path="res://elements/components/heath_component.tscn" id="2_wgaw1"]
+[ext_resource type="PackedScene" uid="uid://cn008mb8us4va" path="res://elements/components/hitbox_component.tscn" id="3_p7vss"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sfv1e"]
 height = 40.0
@@ -27,7 +29,7 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_symyc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_sfv1e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -52,3 +54,10 @@ metadata/_aseprite_wizard_source_file_hash_ = "e8a511b5013e0b5c1d324c3ae49fc14e"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
+
+[node name="HeathComponent" parent="." instance=ExtResource("2_wgaw1")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_p7vss")]
+
+[node name="HitboxShape" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CapsuleShape2D_sfv1e")
