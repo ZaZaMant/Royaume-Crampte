@@ -3,12 +3,12 @@
 importer="aseprite_wizard.plugin.noop"
 type="PackedDataContainer"
 uid="uid://ri0edknliqrw"
-path="res://.godot/imported/items-icons.ase-548cbf603a7a6f5ec401973d51262cfb.res"
+path="res://.godot/imported/items-icons.ase-04dee4021ad7ca72532e99cabf8c3533.res"
 
 [deps]
 
-source_file="res://assets/sprites/items-icons.ase"
-dest_files=["res://.godot/imported/items-icons.ase-548cbf603a7a6f5ec401973d51262cfb.res"]
+source_file="res://assets/sprites/old/items-icons.ase"
+dest_files=["res://.godot/imported/items-icons.ase-04dee4021ad7ca72532e99cabf8c3533.res"]
 
 [params]
 

@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var movement_speed = 300.0
@@ -9,6 +10,7 @@ extends CharacterBody2D
 
 @onready var _camera: Camera2D = %Camera2D
 @onready var _moving_health_bar: MovingHealthBar = $MovingHealthBar # remove
+@onready var _animation_tree: AnimationTree = $AnimationTree
 
 # Hunger
 var hunger: int
@@ -17,10 +19,16 @@ var last_time_ate: int
 # Thirst
 var thirst: int
 
-# Stamina
+# StaminaItem
 var stamina: float
 
 var inventory: Inventory = Inventory.new()
+@export var hand_equiped: Item :
+	set(e):
+		hand_equiped = e
+		print("[Player] Equiped ", hand_equiped.name)
+
+var idle: bool
 
 func _ready() -> void:
 	hunger = max_hunger
@@ -33,7 +41,9 @@ func _physics_process(delta: float) -> void:
 
 	velocity = Vector2(direction.x, direction.y) * movement_speed
 	
-	if !velocity.is_zero_approx():
+	idle = !velocity
+	
+	if !idle:
 		stamina -= 0.1
 	elif stamina < max_stamina:
 		stamina += 0.2

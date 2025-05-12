@@ -1,6 +1,6 @@
 #include "register_types.h"
 
-#include "entities/player.h"
+// #include "entities/player.h"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/class_db.hpp>
@@ -15,7 +15,7 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level)
 		return;
 	}
 
-	GDREGISTER_RUNTIME_CLASS(Player);
+	// GDREGISTER_RUNTIME_CLASS(Player);
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {

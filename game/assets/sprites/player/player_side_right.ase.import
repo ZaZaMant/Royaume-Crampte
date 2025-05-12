@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b3u2oa7capue2"
+path="res://.godot/imported/player_side_right.ase-93aa5dc04ac6ae24e2c9db12307b5f1e.res"
+
+[deps]
+
+source_file="res://assets/sprites/player/player_side_right.ase"
+dest_files=["res://.godot/imported/player_side_right.ase-93aa5dc04ac6ae24e2c9db12307b5f1e.res"]
+
+[params]
+

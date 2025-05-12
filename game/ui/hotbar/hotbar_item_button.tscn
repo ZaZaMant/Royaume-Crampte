@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://1jte8h67p01h"]
+
+[ext_resource type="Texture2D" uid="uid://bw15h5ehukkgr" path="res://assets/sprites/icons/brindille.png" id="1_q64fl"]
+[ext_resource type="Script" uid="uid://cqdnvxtyqi0td" path="res://ui/hotbar/item_button.gd" id="2_n0x71"]
+
+[node name="ItemButton" type="Button"]
+size_flags_vertical = 8
+icon = ExtResource("1_q64fl")
+script = ExtResource("2_n0x71")

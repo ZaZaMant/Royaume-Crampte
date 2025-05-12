@@ -10,6 +10,7 @@
 ### todo (code)
 
 - implémenter les animations
+    - [x] player
 - implémenter la mécanique de course
 - barre de faim. (mécanique a décidé aussi)
 - pouvoir organiser l'inventaire

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://brnicvxeoj0ye"]
+[gd_scene load_steps=13 format=3 uid="uid://brnicvxeoj0ye"]
 
 [ext_resource type="PackedScene" uid="uid://r26p4me684tv" path="res://elements/entities/player/player.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://donf48kyyubec" path="res://elements/pickup/pickup.tscn" id="2_tlwt5"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://d2r3kvkfk5gn" path="res://data/items/brick_of_milk.tres" id="5_gbfbk"]
 [ext_resource type="Resource" uid="uid://de6qirowqcyy3" path="res://data/items/kouign_amann.tres" id="5_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://bd448qfc5agqd" path="res://elements/map/map.tscn" id="6_dwbse"]
+[ext_resource type="PackedScene" uid="uid://cttgouglptchi" path="res://ui/hotbar/hotbar.tscn" id="8_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://ca0le6or0ovvu" path="res://ui/player_stats/health_bar.tscn" id="9_ioo17"]
 [ext_resource type="PackedScene" uid="uid://p6j01fq7w36v" path="res://ui/player_stats/stamina_bar.tscn" id="10_wse8f"]
 [ext_resource type="PackedScene" uid="uid://byk4mqu1jrptu" path="res://ui/player_stats/hunger_bar.tscn" id="11_ic0uy"]
@@ -33,6 +34,17 @@ item = ExtResource("5_pkg7o")
 
 [node name="UIRoot" type="CanvasLayer" parent="."]
 script = ExtResource("4_036b0")
+
+[node name="Hotbar" parent="UIRoot" instance=ExtResource("8_k3n1d")]
+custom_minimum_size = Vector2(100, 30)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = -51.0
+offset_top = -30.0
+offset_right = 50.0
+grow_vertical = 0
 
 [node name="InventoryPanel" parent="UIRoot" instance=ExtResource("4_aqk2v")]
 unique_name_in_owner = true
