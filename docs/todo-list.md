@@ -46,5 +46,10 @@
 
 - dialogues.
 
+### animations / visuel
 
+- "batiment" unique a chaque biome
+- idle animation
+- slash animation
+- 
 
