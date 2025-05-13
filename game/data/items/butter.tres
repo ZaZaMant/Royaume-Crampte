@@ -6,7 +6,9 @@
 [resource]
 script = ExtResource("2_rs45x")
 name = "Butter"
+description = ""
+stackable = true
 type = 4
-icon = ExtResource("1_y535a")
+texture = ExtResource("1_y535a")
 price = 12
 metadata/_custom_type_script = "uid://bekvxoksfcqh7"

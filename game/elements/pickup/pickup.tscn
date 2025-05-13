@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://donf48kyyubec"]
+[gd_scene load_steps=4 format=3 uid="uid://donf48kyyubec"]
 
 [ext_resource type="Script" uid="uid://b3bb168vnkx13" path="res://elements/pickup/pickup.gd" id="1_mfba0"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mfba0"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mfba0"]
 
-[node name="Pickup" type="Node2D"]
+[node name="Pickup" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource("1_mfba0")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mfba0")
+
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_mfba0")

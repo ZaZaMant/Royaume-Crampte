@@ -6,7 +6,9 @@
 [resource]
 script = ExtResource("1_hdh6y")
 name = "Brindille"
+description = ""
+stackable = false
 type = 2
-icon = ExtResource("1_6gl16")
+texture = ExtResource("1_6gl16")
 price = 0
 metadata/_custom_type_script = "uid://bekvxoksfcqh7"

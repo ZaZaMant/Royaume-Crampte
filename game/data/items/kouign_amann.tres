@@ -6,7 +6,9 @@
 [resource]
 script = ExtResource("1_54gt1")
 name = "Kouign-amann"
+description = ""
+stackable = true
 type = 3
-icon = ExtResource("1_8kpqj")
+texture = ExtResource("1_8kpqj")
 price = -1
 metadata/_custom_type_script = "uid://bekvxoksfcqh7"

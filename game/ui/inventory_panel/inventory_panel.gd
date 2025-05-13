@@ -1,36 +1,26 @@
 class_name InventoryDialog
 extends PanelContainer
 
-@export var slot_scene: PackedScene
+const Slot = preload("res://ui/item_slot/item_slot.tscn")
 
-@onready var _grid_container: GridContainer = %GridContainer
+@onready var item_grid: GridContainer = %ItemGrid
 
-var _is_opened = false
-
-func open(inventory: Inventory):
-	show()
-	_is_opened = true
+func set_inventory_data(inventory_data: InventoryData):
+	inventory_data.inventory_updated.connect(populate_item_grid)
+	populate_item_grid(inventory_data)
 	
-	# remove all items
-	for child in _grid_container.get_children():
-		child.queue_free()
-	
-	for item in inventory.get_item():
-		var slot = slot_scene.instantiate()
-		_grid_container.add_child(slot) # first add the slot
-		slot.display(item) # then display the item
+func clear_inventory_data(inventory_data: InventoryData):
+	inventory_data.inventory_updated.disconnect(populate_item_grid)
 
-func close():
-	hide()
-	_is_opened = false
-
-	# remove all items
-	for child in _grid_container.get_children():
+func populate_item_grid(inventory_data: InventoryData):
+	for child in item_grid.get_children():
 		child.queue_free()
 
-func toggle_visibility(inventory: Inventory):
-	if _is_opened:
-		close()
-	else:
-		open(inventory)
-	
+	for slot_data in inventory_data.slot_datas:
+		var slot = Slot.instantiate()
+		item_grid.add_child(slot)
+		
+		slot.slot_clicked.connect(inventory_data.on_slot_clicked)
+		
+		if slot_data:
+			slot.set_slot_data(slot_data)

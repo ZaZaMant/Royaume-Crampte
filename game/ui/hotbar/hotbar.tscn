@@ -1,12 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://cttgouglptchi"]
+[gd_scene load_steps=5 format=3 uid="uid://cttgouglptchi"]
 
 [ext_resource type="Script" uid="uid://cjlswc34a02u2" path="res://ui/hotbar/hotbar.gd" id="1_qhdb0"]
 [ext_resource type="PackedScene" uid="uid://1jte8h67p01h" path="res://ui/hotbar/hotbar_item_button.tscn" id="2_qhdb0"]
-[ext_resource type="Resource" uid="uid://d2r3kvkfk5gn" path="res://data/items/brick_of_milk.tres" id="3_75lfc"]
 [ext_resource type="Resource" uid="uid://cbdbkwryrs270" path="res://data/items/brindille.tres" id="3_ge6tj"]
-[ext_resource type="Texture2D" uid="uid://rocb56i1qvvy" path="res://assets/sprites/icons/beurre.png" id="3_nqyql"]
-[ext_resource type="Resource" uid="uid://c2a37rfofphty" path="res://data/items/butter.tres" id="4_ge6tj"]
-[ext_resource type="Texture2D" uid="uid://6qnd8w251y3y" path="res://assets/sprites/icons/milk.png" id="5_relv5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ge6tj"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [node name="Hotbar" type="Control"]
 layout_mode = 3
@@ -25,14 +33,10 @@ columns = 10
 
 [node name="ItemButton" parent="GridContainer" instance=ExtResource("2_qhdb0")]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ge6tj")
 item = ExtResource("3_ge6tj")
 
-[node name="ItemButton2" parent="GridContainer" instance=ExtResource("2_qhdb0")]
+[node name="ItemButton4" parent="GridContainer" instance=ExtResource("2_qhdb0")]
 layout_mode = 2
-icon = ExtResource("3_nqyql")
-item = ExtResource("4_ge6tj")
-
-[node name="ItemButton3" parent="GridContainer" instance=ExtResource("2_qhdb0")]
-layout_mode = 2
-icon = ExtResource("5_relv5")
-item = ExtResource("3_75lfc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ge6tj")
+item = ExtResource("3_ge6tj")

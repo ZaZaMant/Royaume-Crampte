@@ -1,19 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://slkmth4dxdyf"]
+[gd_scene load_steps=2 format=3 uid="uid://slkmth4dxdyf"]
 
 [ext_resource type="Script" uid="uid://srcdkl645w1p" path="res://ui/inventory_panel/inventory_panel.gd" id="1_a3r45"]
-[ext_resource type="PackedScene" uid="uid://1p12g2jnifeh" path="res://ui/item_slot/item_slot.tscn" id="2_p663k"]
 
 [node name="InventoryPanel" type="PanelContainer"]
-custom_minimum_size = Vector2(100, 100)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a3r45")
-slot_scene = ExtResource("2_p663k")
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ItemGrid" type="GridContainer" parent="MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-columns = 5
+columns = 6

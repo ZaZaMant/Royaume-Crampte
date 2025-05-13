@@ -1,0 +1,34 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2kepf6u2h6pn"]
+
+[ext_resource type="Texture2D" uid="uid://dbx66sovxd1" path="res://icon.svg" id="1_1jl6b"]
+[ext_resource type="Script" uid="uid://cs0bixbtr33rs" path="res://elements/chest/chest.gd" id="1_oivti"]
+[ext_resource type="Script" uid="uid://t50g1mex8x5t" path="res://model/inventory/inventory_data.gd" id="2_2wig2"]
+[ext_resource type="Script" uid="uid://ok56m4vwtiil" path="res://model/inventory/slot_data.gd" id="3_exe3q"]
+[ext_resource type="Resource" uid="uid://c2a37rfofphty" path="res://data/items/butter.tres" id="4_pbtal"]
+
+[sub_resource type="Resource" id="Resource_xnnot"]
+script = ExtResource("3_exe3q")
+item_data = ExtResource("4_pbtal")
+quantity = 3
+metadata/_custom_type_script = "uid://ok56m4vwtiil"
+
+[sub_resource type="Resource" id="Resource_31kup"]
+script = ExtResource("2_2wig2")
+slot_datas = Array[ExtResource("3_exe3q")]([SubResource("Resource_xnnot"), null])
+metadata/_custom_type_script = "uid://t50g1mex8x5t"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jl6b"]
+
+[node name="Chest" type="StaticBody2D" groups=["external_inventory"]]
+collision_layer = 5
+collision_mask = 0
+script = ExtResource("1_oivti")
+inventory_data = SubResource("Resource_31kup")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.43051e-06, -9.53674e-07)
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_1jl6b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1jl6b")

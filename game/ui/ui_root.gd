@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var player: CharacterBody2D = %Player
-@onready var inventory_panel: InventoryDialog = %InventoryPanel
+@onready var inventory_panel: InventoryDialog = %PlayerInventoryPanel
 
 # Player stats
 @onready var player_health_bar: ProgressBar = %PlayerHealthBar
@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	player_health_bar.value = health_component.health
 	player_stamina_bar.value = player.stamina
 
-func _unhandled_input(event: InputEvent) -> void:
-	# Open the inventory panel
-	if event.is_action_released("inventory"):
-		inventory_panel.toggle_visibility(player.inventory)
+#func _unhandled_input(event: InputEvent) -> void:
+	## Open the inventory panel
+	#if event.is_action_released("inventory"):
+		#inventory_panel.toggle_visibility(player.inventory)

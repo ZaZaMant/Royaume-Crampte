@@ -1,16 +1,12 @@
 extends Node2D
 
-@export var item: Item
+@export var slot_data: SlotData
 
-@onready var _item_icon: Sprite2D = $ItemIcon
+@onready var item_icon: Sprite2D = $ItemIcon
 
 func _ready() -> void:
-	_item_icon.texture = item.icon
+	item_icon.texture = slot_data.item_data.texture
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_method("on_item_picked_up"):
-		body.on_item_picked_up(item)
-		
-		# TODO - animation
-		
+	if body.inventory_data.pick_up_slot_data(slot_data):
 		queue_free()

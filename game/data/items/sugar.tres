@@ -6,7 +6,9 @@
 [resource]
 script = ExtResource("1_vhvfu")
 name = "Sugar"
+description = ""
+stackable = false
 type = 4
-icon = ExtResource("1_rcpoa")
+texture = ExtResource("1_rcpoa")
 price = 5
 metadata/_custom_type_script = "uid://bekvxoksfcqh7"

@@ -6,7 +6,9 @@
 [resource]
 script = ExtResource("1_u3pww")
 name = "Brick of milk"
+description = ""
+stackable = true
 type = 5
-icon = ExtResource("1_tv470")
+texture = ExtResource("1_tv470")
 price = 6
 metadata/_custom_type_script = "uid://bekvxoksfcqh7"
