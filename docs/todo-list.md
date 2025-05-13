@@ -14,7 +14,9 @@
 - [x] implémenter la mécanique de course
 - barre de faim. (mécanique a décidé aussi)
 - pouvoir organiser l'inventaire
-- map dessin
+- map
+- augmentation consommation stamina pendant course poursuite.
+- récupérer les items avec la touche e (?)
 
 
 ### todo (visu)
@@ -38,9 +40,10 @@
 
 ## bonus
 
-## environnement
+### environnement
 
 - météo.
+- dessin
 
 ### pnj
 

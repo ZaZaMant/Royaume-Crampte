@@ -62,8 +62,8 @@ func _physics_process(delta: float) -> void:
 	if !idle:
 		last_facing_direction = direction
 	
-	if !idle:
-		stamina -= 0.1
+	if is_running:
+		stamina -= 0.2
 	elif stamina < max_stamina:
 		stamina += 0.2
 
