@@ -7,6 +7,11 @@ extends Node2D
 func _ready() -> void:
 	item_icon.texture = slot_data.item_data.texture
 
+func player_interact(player: Player):
+	player.inventory_data.pick_up_slot_data(slot_data)
+	queue_free()
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.inventory_data.pick_up_slot_data(slot_data):
-		queue_free()
+	pass
+	#if body.inventory_data.pick_up_slot_data(slot_data):
+		#queue_free()

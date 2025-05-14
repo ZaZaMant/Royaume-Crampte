@@ -1,10 +1,9 @@
-[gd_scene load_steps=29 format=4 uid="uid://r26p4me684tv"]
+[gd_scene load_steps=28 format=4 uid="uid://r26p4me684tv"]
 
 [ext_resource type="Script" uid="uid://d4dmutullb65h" path="res://elements/entities/player/player.gd" id="1_symyc"]
 [ext_resource type="Resource" uid="uid://tmweahvyrfbj" path="res://test_inv.tres" id="2_a555w"]
 [ext_resource type="PackedScene" uid="uid://b7rturmp358io" path="res://elements/components/heath_component.tscn" id="2_wgaw1"]
 [ext_resource type="PackedScene" uid="uid://cn008mb8us4va" path="res://elements/components/hitbox_component.tscn" id="3_p7vss"]
-[ext_resource type="PackedScene" uid="uid://dveia3qqg10gs" path="res://ui/moving_healthbar/moving_healthbar.tscn" id="4_p7vss"]
 [ext_resource type="AnimationNodeBlendSpace2D" uid="uid://bru33q5srwj5r" path="res://elements/entities/player/animations/player_run_blend.tres" id="5_5j20d"]
 [ext_resource type="Script" uid="uid://cggq3uo0nt2q" path="res://elements/entities/player/player_animation.gd" id="6_b0a01"]
 
@@ -238,27 +237,14 @@ metadata/_aseprite_wizard_source_file_hash_ = "566a75e7c859d2592c2208f35fab2bcc"
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 
-[node name="HeathComponent" parent="." instance=ExtResource("2_wgaw1")]
+[node name="HealthComponent" parent="." instance=ExtResource("2_wgaw1")]
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_p7vss")]
-health_component = NodePath("../HeathComponent")
+health_component = NodePath("../HealthComponent")
 
 [node name="HitboxShape" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_sfv1e")
-
-[node name="MovingHealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_p7vss")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -11.0
-offset_top = -25.0
-offset_right = 11.0
-offset_bottom = -24.0
-grow_horizontal = 1
-grow_vertical = 1
-health_component = NodePath("../HeathComponent")
-metadata/_edit_use_anchors_ = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_p7vss")
@@ -281,4 +267,4 @@ shape = SubResource("CircleShape2D_knhn6")
 target_position = Vector2(0, 0)
 collision_mask = 4
 
-[connection signal="health_changed" from="HeathComponent" to="." method="_on_heath_component_health_changed"]
+[connection signal="health_changed" from="HealthComponent" to="." method="_on_heath_component_health_changed"]

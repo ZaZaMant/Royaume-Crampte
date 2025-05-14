@@ -1,10 +1,17 @@
-[gd_resource type="Resource" script_class="InventoryData" load_steps=10 format=3 uid="uid://tmweahvyrfbj"]
+[gd_resource type="Resource" script_class="InventoryData" load_steps=12 format=3 uid="uid://tmweahvyrfbj"]
 
 [ext_resource type="Script" uid="uid://t50g1mex8x5t" path="res://model/inventory/inventory_data.gd" id="1_ghyoh"]
 [ext_resource type="Script" uid="uid://ok56m4vwtiil" path="res://model/inventory/slot_data.gd" id="2_d3a5g"]
+[ext_resource type="Resource" uid="uid://ccac3dc1vcj7s" path="res://data/items/butter.tres" id="3_eyyk3"]
 [ext_resource type="Resource" uid="uid://cbdbkwryrs270" path="res://data/items/brindille.tres" id="3_nb6ky"]
 [ext_resource type="Resource" uid="uid://d2r3kvkfk5gn" path="res://data/items/brick_of_milk.tres" id="4_eyyk3"]
 [ext_resource type="Resource" uid="uid://de6qirowqcyy3" path="res://data/items/kouign_amann.tres" id="5_d3a5g"]
+
+[sub_resource type="Resource" id="Resource_87rnb"]
+script = ExtResource("2_d3a5g")
+item_data = ExtResource("3_eyyk3")
+quantity = 6
+metadata/_custom_type_script = "uid://ok56m4vwtiil"
 
 [sub_resource type="Resource" id="Resource_b831s"]
 script = ExtResource("2_d3a5g")
@@ -32,5 +39,5 @@ metadata/_custom_type_script = "uid://ok56m4vwtiil"
 
 [resource]
 script = ExtResource("1_ghyoh")
-slot_datas = Array[ExtResource("2_d3a5g")]([null, null, SubResource("Resource_b831s"), null, null, SubResource("Resource_l26vm"), null, null, null, SubResource("Resource_nb6ky"), SubResource("Resource_d3a5g"), null, null, null, null, null, null, null])
+slot_datas = Array[ExtResource("2_d3a5g")]([null, SubResource("Resource_87rnb"), SubResource("Resource_b831s"), null, null, SubResource("Resource_l26vm"), null, null, null, SubResource("Resource_nb6ky"), SubResource("Resource_d3a5g"), null, null, null, null, null, null, null])
 metadata/_custom_type_script = "uid://t50g1mex8x5t"

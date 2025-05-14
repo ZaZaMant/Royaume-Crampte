@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c2a37rfofphty"]
+[gd_resource type="Resource" script_class="ItemConsumable" load_steps=3 format=3 uid="uid://ccac3dc1vcj7s"]
 
+[ext_resource type="Script" uid="uid://ds2nt6sa0o252" path="res://model/item_consumable.gd" id="1_h7cdj"]
 [ext_resource type="Texture2D" uid="uid://rocb56i1qvvy" path="res://assets/sprites/icons/beurre.png" id="1_y535a"]
-[ext_resource type="Script" uid="uid://bekvxoksfcqh7" path="res://model/item.gd" id="2_rs45x"]
 
 [resource]
-script = ExtResource("2_rs45x")
+script = ExtResource("1_h7cdj")
+heal_value = -10
 name = "Butter"
-description = ""
+description = "Mmmmmmh"
 stackable = true
-type = 4
 texture = ExtResource("1_y535a")
-price = 12
-metadata/_custom_type_script = "uid://bekvxoksfcqh7"
+price = 2
+metadata/_custom_type_script = "uid://ds2nt6sa0o252"

@@ -8,10 +8,15 @@ var external_inventory_owner
 @onready var grabbed_item_slot: PanelContainer = $GrabbedItemSlot
 
 signal drop_slot_data(slot_data: SlotData)
+signal force_close
 
 func _physics_process(delta: float) -> void:
 	if grabbed_item_slot.visible:
 		grabbed_item_slot.global_position = get_global_mouse_position() + Vector2(5, 5)
+	
+	if external_inventory_owner \
+		and external_inventory_owner.global_position.distance_to(PlayerManager.get_global_position()) > 24:
+		force_close.emit()
 
 func set_player_inventory_data(inventory_data: InventoryData):
 	inventory_data.inventory_interact.connect(on_inventory_interact)
@@ -43,7 +48,7 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 		[_, MOUSE_BUTTON_LEFT]:
 			grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 		[null, MOUSE_BUTTON_RIGHT]:
-			pass
+			inventory_data.use_slot_data(index)
 		[_, MOUSE_BUTTON_RIGHT]:
 			grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
 

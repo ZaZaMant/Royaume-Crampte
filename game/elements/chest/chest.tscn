@@ -1,14 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2kepf6u2h6pn"]
+[gd_scene load_steps=11 format=3 uid="uid://c2kepf6u2h6pn"]
 
 [ext_resource type="Texture2D" uid="uid://dbx66sovxd1" path="res://icon.svg" id="1_1jl6b"]
 [ext_resource type="Script" uid="uid://cs0bixbtr33rs" path="res://elements/chest/chest.gd" id="1_oivti"]
 [ext_resource type="Script" uid="uid://t50g1mex8x5t" path="res://model/inventory/inventory_data.gd" id="2_2wig2"]
 [ext_resource type="Script" uid="uid://ok56m4vwtiil" path="res://model/inventory/slot_data.gd" id="3_exe3q"]
-[ext_resource type="Resource" uid="uid://c2a37rfofphty" path="res://data/items/butter.tres" id="4_pbtal"]
+[ext_resource type="Script" uid="uid://bekvxoksfcqh7" path="res://model/item.gd" id="4_exe3q"]
+[ext_resource type="Texture2D" uid="uid://rocb56i1qvvy" path="res://assets/sprites/icons/beurre.png" id="5_pbtal"]
+
+[sub_resource type="Resource" id="Resource_26xuy"]
+script = ExtResource("4_exe3q")
+name = "Butter"
+description = ""
+stackable = true
+texture = ExtResource("5_pbtal")
+price = 12
+metadata/_custom_type_script = "uid://bekvxoksfcqh7"
 
 [sub_resource type="Resource" id="Resource_xnnot"]
 script = ExtResource("3_exe3q")
-item_data = ExtResource("4_pbtal")
+item_data = SubResource("Resource_26xuy")
 quantity = 3
 metadata/_custom_type_script = "uid://ok56m4vwtiil"
 

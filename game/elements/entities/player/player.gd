@@ -10,14 +10,15 @@ extends CharacterBody2D
 
 @export_category("Player Stats")
 @export_range(5, 20, 1) var max_hunger = 5
+@export var max_health = 100
 @export var max_stamina = 100
 @export var max_thirst = 100
 
 @onready var _camera: Camera2D = %Camera2D
-@onready var _moving_health_bar: MovingHealthBar = $MovingHealthBar # remove
 @onready var _animation_tree: AnimationTree = $AnimationTree
 @onready var interaction_cast: ShapeCast2D = $InteractionShapeCast
 @onready var camera: Camera2D = %Camera2D
+@onready var health_component: HealthComponent = $HealthComponent
 
 signal toggle_inventory
 
@@ -41,12 +42,14 @@ var stamina: float
 		print("[Player] Equiped ", hand_equiped.name)
 
 var idle: bool
+var can_pickup: bool
 
 func _ready() -> void:
+	health_component.take_damage(Attack.new(30))
+	PlayerManager.player = self
 	hunger = max_hunger
 	thirst = max_thirst
 	stamina = max_stamina
-	_moving_health_bar.health = 100 # remove
 
 func _physics_process(delta: float) -> void:
 	var direction = get_input()
@@ -93,11 +96,11 @@ func get_input() -> Vector2:
 
 func interact():
 	if interaction_cast.is_colliding():
-		interaction_cast.get_collider(0).player_interact()
+		print("Interact")
+		interaction_cast.get_collider(0).player_interact(self)
+
+func heal(heal_value: int):
+	health_component.add_health(heal_value)
 
 func get_drop_position() -> Vector2:
 	return camera.global_position + (last_facing_direction * 24)
-
-# remove
-func _on_heath_component_health_changed(old_value: Variant, new_value: Variant) -> void:
-	_moving_health_bar.health = new_value

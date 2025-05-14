@@ -1,23 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cttgouglptchi"]
+[gd_scene load_steps=2 format=3 uid="uid://cttgouglptchi"]
 
 [ext_resource type="Script" uid="uid://cjlswc34a02u2" path="res://ui/hotbar/hotbar.gd" id="1_qhdb0"]
-[ext_resource type="PackedScene" uid="uid://1jte8h67p01h" path="res://ui/hotbar/hotbar_item_button.tscn" id="2_qhdb0"]
-[ext_resource type="Resource" uid="uid://cbdbkwryrs270" path="res://data/items/brindille.tres" id="3_ge6tj"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ge6tj"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[node name="Hotbar" type="Control"]
-layout_mode = 3
+[node name="Hotbar" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,18 +10,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qhdb0")
 
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-columns = 10
-
-[node name="ItemButton" parent="GridContainer" instance=ExtResource("2_qhdb0")]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_ge6tj")
-item = ExtResource("3_ge6tj")
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="ItemButton4" parent="GridContainer" instance=ExtResource("2_qhdb0")]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_ge6tj")
-item = ExtResource("3_ge6tj")

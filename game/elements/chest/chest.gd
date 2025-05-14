@@ -4,5 +4,5 @@ extends StaticBody2D
 
 signal toggle_inventory(external_inventory_owner)
 
-func player_interact():
+func player_interact(player: Player):
 	toggle_inventory.emit(self)

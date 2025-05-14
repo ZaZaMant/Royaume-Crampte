@@ -1,11 +1,32 @@
-extends Control
+extends PanelContainer
 
-@onready var player: Player = get_tree().get_first_node_in_group("player")
-@onready var grid_container: GridContainer = $GridContainer
-#
-#func _ready() -> void:
-	#print(player.hand_equiped)
-	#if player:
-		#for button in grid_container.get_children():
-			#if button is HotbarItemButton:
-				#button.hand_equip = player.hand_equiped
+const Slot = preload("res://ui/item_slot/item_slot.tscn")
+
+@onready var h_box_container: HBoxContainer = $MarginContainer/HBoxContainer
+
+signal hot_bar_use(index: int)
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if not visible or not event.is_pressed():
+		return
+	
+	if range(KEY_1, KEY_7).has(event.keycode):
+		hot_bar_use.emit(12 + event.keycode - KEY_1)
+
+func set_inventory_data(inventory_data: InventoryData):
+	inventory_data.inventory_updated.connect(populate_hot_bar)
+	populate_hot_bar(inventory_data)
+	hot_bar_use.connect(inventory_data.use_slot_data)
+
+func populate_hot_bar(inventory_data: InventoryData):
+	for child in h_box_container.get_children():
+		child.queue_free()
+
+	for slot_data in inventory_data.slot_datas.slice(12, 18):
+		var slot = Slot.instantiate()
+		h_box_container.add_child(slot)
+		
+		slot.slot_clicked.connect(inventory_data.on_slot_clicked)
+		
+		if slot_data:
+			slot.set_slot_data(slot_data)

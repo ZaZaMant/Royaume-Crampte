@@ -11,6 +11,11 @@ var health: float
 func _ready() -> void:
 	health = max_health
 
+func add_health(add: int):
+	var old_health = health
+	health = clamp(health + add, 0, max_health)
+	health_changed.emit(old_health, health)
+
 func take_damage(attack: Attack):
 	var old_health = health
 	health -= attack.attack_damage
