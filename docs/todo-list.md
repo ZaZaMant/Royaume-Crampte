@@ -12,11 +12,12 @@
 - implémenter les animations
     - [x] player
 - [x] implémenter la mécanique de course
+- [x] pouvoir organiser l'inventaire
+- [x] augmentation consommation stamina pendant course poursuite.
+- [x] récupérer les items avec la touche e (?)
 - barre de faim. (mécanique a décidé aussi)
-- pouvoir organiser l'inventaire
-- map
-- augmentation consommation stamina pendant course poursuite.
-- récupérer les items avec la touche e (?)
+- map dessin
+- 
 
 
 ### todo (visu)
@@ -36,7 +37,7 @@
 
 ## pnj
 
-- intelligence artificiel
+- intelligence artificiel / state machine
 
 ## bonus
 
