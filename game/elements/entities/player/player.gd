@@ -21,6 +21,8 @@ extends CharacterBody2D
 @onready var health_component: HealthComponent = $HealthComponent
 
 signal toggle_inventory
+signal stamina_updated(new_stamina)
+signal hunger_updated(new_hunger)
 
 var current_speed = 0.0
 var last_facing_direction: Vector2 = Vector2(0, -1)
@@ -65,10 +67,12 @@ func _physics_process(delta: float) -> void:
 	if !idle:
 		last_facing_direction = direction
 	
-	if is_running:
-		stamina -= 0.2
+	if !velocity.is_zero_approx():
+		stamina -= 0.18
 	elif stamina < max_stamina:
-		stamina += 0.2
+		stamina += 0.15 + cos(Time.get_ticks_msec()) * 0.4
+	
+	stamina_updated.emit(stamina)
 
 	move_and_slide()
 	
@@ -99,8 +103,16 @@ func interact():
 		print("Interact")
 		interaction_cast.get_collider(0).player_interact(self)
 
+func get_drop_position() -> Vector2:
+	return camera.global_position + (last_facing_direction * 24)
+
 func heal(heal_value: int):
 	health_component.add_health(heal_value)
 
-func get_drop_position() -> Vector2:
-	return camera.global_position + (last_facing_direction * 24)
+func add_stamina(add: float):
+	stamina += add
+	stamina_updated.emit(stamina)
+
+func add_hunger(add: int):
+	hunger += add
+	hunger_updated.emit(hunger)

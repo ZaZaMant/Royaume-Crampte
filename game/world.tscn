@@ -74,6 +74,7 @@ slot_data = SubResource("Resource_cbp6q")
 script = ExtResource("4_036b0")
 
 [node name="InventoryInterface" type="Control" parent="UIRoot"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

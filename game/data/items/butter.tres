@@ -6,6 +6,8 @@
 [resource]
 script = ExtResource("1_h7cdj")
 heal_value = -10
+stamina_value = -20.0
+hunger_value = 2
 name = "Butter"
 description = "Mmmmmmh"
 stackable = true
