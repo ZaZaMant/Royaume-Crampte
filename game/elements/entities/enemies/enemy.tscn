@@ -1,3 +1,41 @@
-[gd_scene format=3 uid="uid://brjv0ddfdqm8g"]
+[gd_scene load_steps=8 format=3 uid="uid://brjv0ddfdqm8g"]
 
-[node name="Enemy" type="Node2D"]
+[ext_resource type="Script" uid="uid://je7dbvsny7w" path="res://elements/entities/enemies/enemy.gd" id="1_1as3a"]
+[ext_resource type="Texture2D" uid="uid://dssvwa6fxqfpn" path="res://assets/sprites/temp/chalisfer_spin3.png" id="2_cldnh"]
+[ext_resource type="Texture2D" uid="uid://blj1lwnt3ug30" path="res://assets/sprites/temp/chalisfer_spin0.png" id="3_31mh1"]
+[ext_resource type="Texture2D" uid="uid://gf6p3vpf60l2" path="res://assets/sprites/temp/chalisfer_spin1.png" id="4_wdtya"]
+[ext_resource type="Texture2D" uid="uid://n75plihfb8op" path="res://assets/sprites/temp/chalisfer_spin2.png" id="5_2k7mn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ctjes"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cldnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_31mh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wdtya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2k7mn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_msmn4"]
+radius = 7.07107
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_1as3a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, -1)
+scale = Vector2(0.425, 0.425)
+sprite_frames = SubResource("SpriteFrames_ctjes")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_msmn4")

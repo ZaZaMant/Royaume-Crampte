@@ -1,5 +1,6 @@
 extends Node2D
 
+var enemy = preload("res://elements/entities/enemies/enemy.tscn")
 const PickUp = preload("res://elements/pickup/pickup.tscn")
 
 @onready var player: Player = %Player
@@ -15,6 +16,9 @@ func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("external_inventory"):
 		node.toggle_inventory.connect(toggle_inventory_interface)
 
+	for test in range(5) :
+		_spawn_enemy()
+		
 func toggle_inventory_interface(external_inventory_owner = null):
 	inventory_interface.visible = !inventory_interface.visible
 	
@@ -33,3 +37,10 @@ func _on_inventory_interface_drop_slot_data(slot_data: SlotData) -> void:
 	pickup.slot_data = slot_data
 	pickup.position = player.get_drop_position()
 	add_child(pickup)
+
+func _spawn_enemy():
+	var spawned = enemy.instantiate()
+	spawned.player = player
+	%Player/Path2D/PathFollow2D.progress_ratio = randf()
+	spawned.global_position = %Player/Path2D/PathFollow2D.global_position
+	add_child(spawned)

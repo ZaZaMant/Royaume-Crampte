@@ -67,7 +67,7 @@ func _physics_process(delta: float) -> void:
 	if !idle:
 		last_facing_direction = direction
 	
-	if !velocity.is_zero_approx():
+	if is_running:
 		stamina -= 0.18
 	elif stamina < max_stamina:
 		stamina += 0.15 + cos(Time.get_ticks_msec()) * 0.4
