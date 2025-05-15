@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://554g42xly3sv" path="res://elements/weapons/weapon.gd" id="1_xwf37"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwf37"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2g1m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwf37"]
+size = Vector2(30, 30)
 
 [node name="Weapon" type="StaticBody2D"]
 collision_layer = 8
@@ -15,16 +16,17 @@ script = ExtResource("1_xwf37")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="HitArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
-shape = SubResource("RectangleShape2D_xwf37")
-
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_c2g1m")
+
+[node name="HitCast" type="ShapeCast2D" parent="."]
+shape = SubResource("RectangleShape2D_xwf37")
+target_position = Vector2(0, 0)
+collision_mask = 8
+collide_with_areas = true
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

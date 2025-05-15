@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://r26p4me684tv"]
+[gd_scene load_steps=35 format=4 uid="uid://r26p4me684tv"]
 
 [ext_resource type="Script" uid="uid://d4dmutullb65h" path="res://elements/entities/player/player.gd" id="1_symyc"]
 [ext_resource type="Resource" uid="uid://tmweahvyrfbj" path="res://test_inv.tres" id="2_a555w"]
@@ -7,12 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://cn008mb8us4va" path="res://elements/components/hitbox_component.tscn" id="3_p7vss"]
 [ext_resource type="Script" uid="uid://ok56m4vwtiil" path="res://model/inventory/slot_data.gd" id="4_p71k5"]
 [ext_resource type="AnimationNodeBlendSpace2D" uid="uid://bru33q5srwj5r" path="res://elements/entities/player/animations/player_run_blend.tres" id="5_5j20d"]
+[ext_resource type="Resource" uid="uid://6bkjjhfg7dwb" path="res://data/items/weapons/brindille.tres" id="5_p71k5"]
 [ext_resource type="Script" uid="uid://cggq3uo0nt2q" path="res://elements/entities/player/player_animation.gd" id="6_b0a01"]
 [ext_resource type="PackedScene" uid="uid://ymdxjdx8ax6x" path="res://elements/weapons/weapon.tscn" id="7_a555w"]
 
+[sub_resource type="Resource" id="Resource_aobtl"]
+script = ExtResource("4_p71k5")
+item_data = ExtResource("5_p71k5")
+quantity = 1
+metadata/_custom_type_script = "uid://ok56m4vwtiil"
+
 [sub_resource type="Resource" id="Resource_iivwj"]
 script = ExtResource("3_iivwj")
-slot_datas = Array[ExtResource("4_p71k5")]([null])
+slot_datas = Array[ExtResource("4_p71k5")]([SubResource("Resource_aobtl")])
 metadata/_custom_type_script = "uid://c5gnyk5tikiw"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sfv1e"]

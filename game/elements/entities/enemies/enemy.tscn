@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://brjv0ddfdqm8g"]
+[gd_scene load_steps=12 format=3 uid="uid://brjv0ddfdqm8g"]
 
 [ext_resource type="Script" uid="uid://je7dbvsny7w" path="res://elements/entities/enemies/enemy.gd" id="1_1as3a"]
 [ext_resource type="Texture2D" uid="uid://dssvwa6fxqfpn" path="res://assets/sprites/temp/chalisfer_spin3.png" id="2_cldnh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://n75plihfb8op" path="res://assets/sprites/temp/chalisfer_spin2.png" id="5_2k7mn"]
 [ext_resource type="PackedScene" uid="uid://b7rturmp358io" path="res://elements/components/heath_component.tscn" id="6_31mh1"]
 [ext_resource type="PackedScene" uid="uid://dveia3qqg10gs" path="res://ui/moving_healthbar/moving_healthbar.tscn" id="7_wdtya"]
+[ext_resource type="PackedScene" uid="uid://cn008mb8us4va" path="res://elements/components/hitbox_component.tscn" id="8_wdtya"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ctjes"]
 animations = [{
@@ -31,7 +32,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_msmn4"]
 radius = 7.07107
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdtya"]
+size = Vector2(30, 30)
+
+[node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_1as3a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -52,3 +56,11 @@ offset_bottom = -13.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 health_component = NodePath("../HeathComponent")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_wdtya")]
+health_component = NodePath("../HeathComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_wdtya")
+
+[connection signal="health_depleted" from="HeathComponent" to="." method="_on_heath_component_health_depleted"]

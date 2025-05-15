@@ -50,12 +50,19 @@ var can_pickup: bool
 
 func _ready() -> void:
 	weapon_inventory_data.inventory_updated.connect(set_weapon)
+	set_weapon(weapon_inventory_data)
+
 	health_component.take_damage(Attack.new())
 	PlayerManager.player = self
 	hunger = max_hunger
 	thirst = max_thirst
 	stamina = max_stamina
-
+	
+	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		attack()
+	
 func _physics_process(delta: float) -> void:
 	var direction = get_input()
 	
@@ -109,6 +116,8 @@ func interact():
 func get_drop_position() -> Vector2:
 	return camera.global_position + (last_facing_direction * 24)
 
+##
+
 func heal(heal_value: int):
 	health_component.add_health(heal_value)
 
@@ -119,7 +128,12 @@ func add_stamina(add: float):
 func add_hunger(add: int):
 	hunger += add
 	hunger_updated.emit(hunger)
-	
+
+##
+
+func attack():
+	weapon.attack()
+
 func set_weapon(inventory_data: InventoryData):
 	if inventory_data.slot_datas.get(0):
 		var weapon_item = inventory_data.slot_datas[0].item_data
