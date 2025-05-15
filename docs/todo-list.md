@@ -17,7 +17,7 @@
 - [x] récupérer les items avec la touche e (?)
 - barre de faim. (mécanique a décidé aussi)
 - map dessin
-- 
+- weapons : in progress
 
 
 ### todo (visu)

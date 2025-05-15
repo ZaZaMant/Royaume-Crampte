@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://ymdxjdx8ax6x"]
+
+[ext_resource type="Script" uid="uid://554g42xly3sv" path="res://elements/weapons/weapon.gd" id="1_xwf37"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwf37"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2g1m"]
+
+[node name="Weapon" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_xwf37")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="HitArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+shape = SubResource("RectangleShape2D_xwf37")
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c2g1m")
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

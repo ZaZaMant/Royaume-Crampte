@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://j55xy630h5ek"
+path="res://.godot/imported/blade.ase-75b013bce758563e7136c30b62cd9506.res"
+
+[deps]
+
+source_file="res://assets/sprites/weapons/blade.ase"
+dest_files=["res://.godot/imported/blade.ase-75b013bce758563e7136c30b62cd9506.res"]
+
+[params]
+

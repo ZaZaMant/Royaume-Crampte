@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://slkmth4dxdyf"]
 
-[ext_resource type="Script" uid="uid://srcdkl645w1p" path="res://ui/inventory_panel/inventory_panel.gd" id="1_a3r45"]
+[ext_resource type="Script" uid="uid://srcdkl645w1p" path="res://ui/inventory/panel/inventory_panel.gd" id="1_a3r45"]
 
 [node name="InventoryPanel" type="PanelContainer"]
 anchors_preset = 15

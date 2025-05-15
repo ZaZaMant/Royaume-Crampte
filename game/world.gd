@@ -10,6 +10,7 @@ const PickUp = preload("res://elements/pickup/pickup.tscn")
 func _ready() -> void:
 	player.toggle_inventory.connect(toggle_inventory_interface)
 	inventory_interface.set_player_inventory_data(player.inventory_data)
+	inventory_interface.set_weapon_inventory_data(player.weapon_inventory_data)
 	inventory_interface.force_close.connect(toggle_inventory_interface)
 	hotbar.set_inventory_data(player.inventory_data)
 	

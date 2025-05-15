@@ -1,7 +1,7 @@
 class_name InventoryDialog
 extends PanelContainer
 
-const Slot = preload("res://ui/item_slot/item_slot.tscn")
+const Slot = preload("res://ui/inventory/slot/item_slot.tscn")
 
 @onready var item_grid: GridContainer = %ItemGrid
 

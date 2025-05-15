@@ -70,8 +70,9 @@ func pick_up_slot_data(slot_data: SlotData) -> bool:
 			return true
 	
 	for index in slot_datas.size():
-		if not slot_datas[index]:
-			slot_datas[index] = slot_data
+		var i = slot_datas.size() - index - 1
+		if not slot_datas[i]:
+			slot_datas[i] = slot_data
 			inventory_updated.emit(self)
 			return true
 	

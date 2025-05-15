@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://gapxj6t6m5xi"
+path="res://.godot/imported/brindille.ase-f2bfca4016eb802f0c2439c8c46b7ef6.res"
+
+[deps]
+
+source_file="res://assets/sprites/weapons/brindille.ase"
+dest_files=["res://.godot/imported/brindille.ase-f2bfca4016eb802f0c2439c8c46b7ef6.res"]
+
+[params]
+

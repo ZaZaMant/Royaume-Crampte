@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://t50g1mex8x5t" path="res://model/inventory/inventory_data.gd" id="1_ghyoh"]
 [ext_resource type="Script" uid="uid://ok56m4vwtiil" path="res://model/inventory/slot_data.gd" id="2_d3a5g"]
-[ext_resource type="Resource" uid="uid://ccac3dc1vcj7s" path="res://data/items/butter.tres" id="3_eyyk3"]
-[ext_resource type="Resource" uid="uid://cbdbkwryrs270" path="res://data/items/brindille.tres" id="3_nb6ky"]
+[ext_resource type="Resource" uid="uid://ccac3dc1vcj7s" path="res://data/items/consumable/butter.tres" id="3_eyyk3"]
+[ext_resource type="Resource" uid="uid://6bkjjhfg7dwb" path="res://data/items/weapons/brindille.tres" id="3_nb6ky"]
 [ext_resource type="Resource" uid="uid://d2r3kvkfk5gn" path="res://data/items/brick_of_milk.tres" id="4_eyyk3"]
 [ext_resource type="Resource" uid="uid://de6qirowqcyy3" path="res://data/items/kouign_amann.tres" id="5_d3a5g"]
 

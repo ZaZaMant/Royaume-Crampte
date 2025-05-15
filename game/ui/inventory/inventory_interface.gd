@@ -6,6 +6,7 @@ var external_inventory_owner
 @onready var external_inventory_panel: InventoryDialog = %ExternalInventoryPanel
 @onready var player_inventory_panel: InventoryDialog = %PlayerInventoryPanel
 @onready var grabbed_item_slot: PanelContainer = $GrabbedItemSlot
+@onready var weapon_inventory: InventoryDialog = %WeaponInventory
 
 signal drop_slot_data(slot_data: SlotData)
 signal force_close
@@ -21,6 +22,10 @@ func _physics_process(delta: float) -> void:
 func set_player_inventory_data(inventory_data: InventoryData):
 	inventory_data.inventory_interact.connect(on_inventory_interact)
 	player_inventory_panel.set_inventory_data(inventory_data)
+
+func set_weapon_inventory_data(inventory_data: InventoryData):
+	inventory_data.inventory_interact.connect(on_inventory_interact)
+	weapon_inventory.set_inventory_data(inventory_data)
 
 func set_external_inventory(_external_inventory_owner):
 	external_inventory_owner = _external_inventory_owner

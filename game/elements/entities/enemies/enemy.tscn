@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://brjv0ddfdqm8g"]
+[gd_scene load_steps=10 format=3 uid="uid://brjv0ddfdqm8g"]
 
 [ext_resource type="Script" uid="uid://je7dbvsny7w" path="res://elements/entities/enemies/enemy.gd" id="1_1as3a"]
 [ext_resource type="Texture2D" uid="uid://dssvwa6fxqfpn" path="res://assets/sprites/temp/chalisfer_spin3.png" id="2_cldnh"]
 [ext_resource type="Texture2D" uid="uid://blj1lwnt3ug30" path="res://assets/sprites/temp/chalisfer_spin0.png" id="3_31mh1"]
 [ext_resource type="Texture2D" uid="uid://gf6p3vpf60l2" path="res://assets/sprites/temp/chalisfer_spin1.png" id="4_wdtya"]
 [ext_resource type="Texture2D" uid="uid://n75plihfb8op" path="res://assets/sprites/temp/chalisfer_spin2.png" id="5_2k7mn"]
+[ext_resource type="PackedScene" uid="uid://b7rturmp358io" path="res://elements/components/heath_component.tscn" id="6_31mh1"]
+[ext_resource type="PackedScene" uid="uid://dveia3qqg10gs" path="res://ui/moving_healthbar/moving_healthbar.tscn" id="7_wdtya"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ctjes"]
 animations = [{
@@ -39,3 +41,14 @@ sprite_frames = SubResource("SpriteFrames_ctjes")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_msmn4")
+
+[node name="HeathComponent" parent="." instance=ExtResource("6_31mh1")]
+
+[node name="MovingHealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_wdtya")]
+offset_left = -6.0
+offset_top = -14.0
+offset_right = 6.0
+offset_bottom = -13.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+health_component = NodePath("../HeathComponent")

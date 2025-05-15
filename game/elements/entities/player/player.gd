@@ -1,7 +1,9 @@
 class_name Player
 extends CharacterBody2D
 
+@export_category("Player inventory")
 @export var inventory_data: InventoryData
+@export var weapon_inventory_data: InventoryDataWeapon
 
 @export_category("Player movement stats")
 @export var walk_speed = 180.0
@@ -19,6 +21,7 @@ extends CharacterBody2D
 @onready var interaction_cast: ShapeCast2D = $InteractionShapeCast
 @onready var camera: Camera2D = %Camera2D
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var weapon: Weapon = %Weapon
 
 signal toggle_inventory
 signal stamina_updated(new_stamina)
@@ -37,7 +40,6 @@ var thirst: int
 # StaminaItem
 var stamina: float
 
-#var inventory: Inventory = Inventory.new()
 @export var hand_equiped: Item :
 	set(e):
 		hand_equiped = e
@@ -47,7 +49,8 @@ var idle: bool
 var can_pickup: bool
 
 func _ready() -> void:
-	health_component.take_damage(Attack.new(30))
+	weapon_inventory_data.inventory_updated.connect(set_weapon)
+	health_component.take_damage(Attack.new())
 	PlayerManager.player = self
 	hunger = max_hunger
 	thirst = max_thirst
@@ -116,3 +119,10 @@ func add_stamina(add: float):
 func add_hunger(add: int):
 	hunger += add
 	hunger_updated.emit(hunger)
+	
+func set_weapon(inventory_data: InventoryData):
+	if inventory_data.slot_datas.get(0):
+		var weapon_item = inventory_data.slot_datas[0].item_data
+		weapon.set_weapon(weapon_item)
+	else:
+		weapon.set_weapon(null)

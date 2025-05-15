@@ -1,10 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://brnicvxeoj0ye"]
+[gd_scene load_steps=24 format=3 uid="uid://brnicvxeoj0ye"]
 
 [ext_resource type="Script" uid="uid://7ba58tpshgh0" path="res://world.gd" id="1_2o6r5"]
 [ext_resource type="PackedScene" uid="uid://r26p4me684tv" path="res://elements/entities/player/player.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://donf48kyyubec" path="res://elements/pickup/pickup.tscn" id="2_tlwt5"]
 [ext_resource type="Script" uid="uid://bqh151f7oudje" path="res://ui/ui_root.gd" id="4_036b0"]
-[ext_resource type="PackedScene" uid="uid://slkmth4dxdyf" path="res://ui/inventory_panel/inventory_panel.tscn" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://slkmth4dxdyf" path="res://ui/inventory/panel/inventory_panel.tscn" id="4_aqk2v"]
 [ext_resource type="Script" uid="uid://bekvxoksfcqh7" path="res://model/item.gd" id="5_ikiii"]
 [ext_resource type="Resource" uid="uid://de6qirowqcyy3" path="res://data/items/kouign_amann.tres" id="5_pkg7o"]
 [ext_resource type="Script" uid="uid://ok56m4vwtiil" path="res://model/inventory/slot_data.gd" id="6_2u3nc"]
@@ -15,9 +15,10 @@
 [ext_resource type="Script" uid="uid://dsyssusf33jo3" path="res://ui/inventory/inventory_interface.gd" id="9_70uel"]
 [ext_resource type="PackedScene" uid="uid://ca0le6or0ovvu" path="res://ui/player_stats/health_bar.tscn" id="9_ioo17"]
 [ext_resource type="PackedScene" uid="uid://p6j01fq7w36v" path="res://ui/player_stats/stamina_bar.tscn" id="10_wse8f"]
-[ext_resource type="PackedScene" uid="uid://1p12g2jnifeh" path="res://ui/item_slot/item_slot.tscn" id="11_hiqwa"]
+[ext_resource type="PackedScene" uid="uid://1p12g2jnifeh" path="res://ui/inventory/slot/item_slot.tscn" id="11_hiqwa"]
 [ext_resource type="PackedScene" uid="uid://byk4mqu1jrptu" path="res://ui/player_stats/hunger_bar.tscn" id="11_ic0uy"]
 [ext_resource type="PackedScene" uid="uid://c2kepf6u2h6pn" path="res://elements/chest/chest.tscn" id="16_2u3nc"]
+[ext_resource type="PackedScene" uid="uid://brjv0ddfdqm8g" path="res://elements/entities/enemies/enemy.tscn" id="19_cbp6q"]
 
 [sub_resource type="Resource" id="Resource_26xuy"]
 script = ExtResource("5_ikiii")
@@ -74,7 +75,6 @@ slot_data = SubResource("Resource_cbp6q")
 script = ExtResource("4_036b0")
 
 [node name="InventoryInterface" type="Control" parent="UIRoot"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -116,6 +116,17 @@ modulate = Color(1, 1, 1, 0.529412)
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 
+[node name="WeaponInventory" parent="UIRoot" instance=ExtResource("4_aqk2v")]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = -127.0
+offset_top = -16.0
+offset_right = -111.0
+grow_vertical = 0
+
 [node name="Hotbar" parent="UIRoot" instance=ExtResource("8_k3n1d")]
 custom_minimum_size = Vector2(100, 30)
 anchors_preset = 7
@@ -150,6 +161,9 @@ layout_mode = 2
 
 [node name="Chest" parent="." instance=ExtResource("16_2u3nc")]
 position = Vector2(-82, -21)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("19_cbp6q")]
+position = Vector2(-19, -67)
 
 [connection signal="drop_slot_data" from="UIRoot/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
 [connection signal="gui_input" from="UIRoot/InventoryInterface" to="UIRoot/InventoryInterface" method="_on_gui_input"]
