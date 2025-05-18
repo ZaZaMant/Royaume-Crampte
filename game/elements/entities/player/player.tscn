@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://r26p4me684tv"]
+[gd_scene load_steps=36 format=4 uid="uid://r26p4me684tv"]
 
 [ext_resource type="Script" uid="uid://d4dmutullb65h" path="res://elements/entities/player/player.gd" id="1_symyc"]
 [ext_resource type="Resource" uid="uid://tmweahvyrfbj" path="res://test_inv.tres" id="2_a555w"]
@@ -221,6 +221,11 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Curve" id="Curve_p71k5"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.34, 192.963), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_symyc")
@@ -298,5 +303,15 @@ rotation = 0.00973205
 
 [node name="Weapon" parent="." instance=ExtResource("7_a555w")]
 unique_name_in_owner = true
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+randomness = 0.08
+emission_shape = 1
+emission_sphere_radius = 6.0
+spread = 74.07
+gravity = Vector2(0, 0)
+initial_velocity_min = 6.21
+initial_velocity_max = 24.84
+linear_accel_curve = SubResource("Curve_p71k5")
 
 [connection signal="health_changed" from="HealthComponent" to="." method="_on_heath_component_health_changed"]

@@ -8,6 +8,7 @@ const PickUp = preload("res://elements/pickup/pickup.tscn")
 @onready var hotbar: PanelContainer = $UIRoot/Hotbar
 
 func _ready() -> void:
+	player.health_component.health_depleted.connect(game_over)
 	player.toggle_inventory.connect(toggle_inventory_interface)
 	inventory_interface.set_player_inventory_data(player.inventory_data)
 	inventory_interface.set_weapon_inventory_data(player.weapon_inventory_data)
@@ -45,3 +46,6 @@ func _spawn_enemy():
 	%Player/Path2D/PathFollow2D.progress_ratio = randf()
 	spawned.global_position = %Player/Path2D/PathFollow2D.global_position
 	add_child(spawned)
+	
+func game_over():
+	get_tree().change_scene_to_file("res://menus/game_over_menu.tscn")

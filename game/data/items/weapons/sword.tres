@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemWeapon" load_steps=3 format=3 uid="uid://cexw11cy40im0"]
+
+[ext_resource type="Script" uid="uid://b34gg4nqajj6s" path="res://model/item_weapon.gd" id="1_mn025"]
+[ext_resource type="Texture2D" uid="uid://cy86b4r7oklji" path="res://assets/sprites/weapons/blade.png" id="2_fu2us"]
+
+[resource]
+script = ExtResource("1_mn025")
+attack_damage = 30
+knockback_force = 20
+name = "Sword"
+description = ""
+stackable = false
+texture = ExtResource("2_fu2us")
+price = 2
+metadata/_custom_type_script = "uid://b34gg4nqajj6s"

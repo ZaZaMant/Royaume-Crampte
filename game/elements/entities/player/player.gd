@@ -22,6 +22,7 @@ extends CharacterBody2D
 @onready var camera: Camera2D = %Camera2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var weapon: Weapon = %Weapon
+@onready var particles: CPUParticles2D = $Particles
 
 signal toggle_inventory
 signal stamina_updated(new_stamina)
@@ -76,6 +77,10 @@ func _physics_process(delta: float) -> void:
 	
 	if !idle:
 		last_facing_direction = direction
+		particles.set("emitting", true)
+		particles.set("direction", -velocity.normalized())
+	else:
+		particles.set("emitting", false)
 	
 	if is_running:
 		stamina -= 0.18
@@ -83,6 +88,7 @@ func _physics_process(delta: float) -> void:
 		stamina += 0.15 + cos(Time.get_ticks_msec()) * 0.4
 	
 	stamina_updated.emit(stamina)
+	
 
 	move_and_slide()
 	

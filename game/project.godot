@@ -24,7 +24,7 @@ resources_spreadsheet_view/freeze_first_column=true
 [application]
 
 config/name="royaume crampte"
-run/main_scene="uid://brnicvxeoj0ye"
+run/main_scene="uid://ca2861s56rm54"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -38,6 +38,7 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/stretch/scale=3.0
 window/stretch/scale_mode="integer"
 

@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://xwhc6oxbuq4t"]
+
+[ext_resource type="Script" uid="uid://cvkfttwbodf56" path="res://menus/game_over_menu.gd" id="1_kqwex"]
+
+[node name="GameOverMenu" type="Node2D"]
+script = ExtResource("1_kqwex")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer"]
+offset_left = 254.0
+offset_top = 147.0
+offset_right = 294.0
+offset_bottom = 170.0
+text = "you suck !"
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer"]
+offset_left = 278.0
+offset_top = 279.0
+offset_right = 375.0
+offset_bottom = 310.0
+text = "main menu"
+
+[connection signal="pressed" from="CanvasLayer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
